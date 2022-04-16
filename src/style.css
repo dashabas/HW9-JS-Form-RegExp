@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    padding-top: 50px;
+}
+.input_block {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+input {
+    max-width: 850px;
+    width: 100%;
+    padding: 10px;
+    font-size: larger;
+    border: 1px solid blue;
+}
+input:focus {
+    border: 1px solid yellow;
+    outline: 3px solid yellow;
+    color: blue;
+}
+input.invalid{
+    color: red;
+    border: 1px solid red;
+    outline: 3px solid red;
+}
+
+input.valid {
+    border: 1px solid yellow;
+    outline: 3px solid yellow;
+    color: blue;
+}
+
+.out {
+    color: red;
+    font-size: small;
+}
+.btn {
+    padding: 10px;
+    font-size: larger;
+    background-color: yellow;
+    color: blue;
+    border: 1px solid blue;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.btn_delete {
+    margin-left: 550px;
+    padding: 7px;
+    font-size: medium;
+    background-color: yellow;
+    color: blue;
+    border: 1px solid blue;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.btn_delete:hover {
+    background-color: blue;
+    color: yellow;
+}
+.btn:hover {
+    background-color: blue;
+    color: yellow;
+}
+li {
+    font-size: x-large;
+    font-family: sans-serif;
+    color: blue;
+    background-color: yellow;
+    padding: 7px 20px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.done_task {
+    background-color: lime;
+}
+h1 {
+    font-size: xx-large;
+    font-family: sans-serif;
+    color: blue;
+    margin-bottom: 15px;
+    text-align: center;
+}
