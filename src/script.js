@@ -1,18 +1,15 @@
-const wrapper = document.querySelector('.wrapper');
+const wrapperTaskList = document.querySelector('.wrapper');
 const taskInput = document.querySelector('#task_input');
 const taskList = document.querySelector('.list');
 
-
 function addTask() {
-    let liTask = document.createElement('li');
-    liTask.dataset.action = 'change-task-status';
-    if (!regExp.test(taskInput.value)) {
-       liTask = '';
-    } else {
-        liTask.innerHTML = `${taskInput.value} <button class="btn_delete" data-action="delete-task">Удалить</button>`;
+    if (regExp.test(taskInput.value)) {
+        let taskLi = document.createElement('li');
+        taskLi.dataset.action = 'change-task-status';
+        taskLi.innerHTML = `${taskInput.value} <button class="btn_delete" data-action="delete-task">Удалить</button>`;
+        taskInput.value = '';
+        taskList.append(taskLi);
     }
-    taskInput.value = '';
-    taskList.append(liTask);
 }
 
 function changeTaskStatus(element) {
@@ -25,9 +22,10 @@ function deleteTask(element) {
     }
 }
 
-wrapper.addEventListener('click', (event) => {
+wrapperTaskList.addEventListener('click', (event) => {
     let action = event.target.dataset.action;
     let item = event.target;
+
     switch (action) {
         case 'add-task':
             addTask();
@@ -42,24 +40,25 @@ wrapper.addEventListener('click', (event) => {
 });
 
 const taskForm = document.querySelector('#task_form');
+
 taskForm.addEventListener('submit', (event) => {
     event.preventDefault();
 });
 
-let error = document.querySelector('.out');
+let errorMessage = document.querySelector('.out');
 let regExp = /^[a-zA-Z0-9]{2,25}$/;
 
 function validate() {
     if (!regExp.test(taskInput.value)) {
         taskInput.classList.add('invalid');
-        error.innerHTML = 'Error';
+        errorMessage.innerHTML = 'Error';
     }
     else {
         taskInput.classList.remove('invalid');
-        error.innerHTML = '';
+        errorMessage.innerHTML = '';
     }
 }
+
 taskInput.addEventListener('input', () => {
     validate();
 });
-
